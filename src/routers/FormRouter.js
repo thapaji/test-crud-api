@@ -5,7 +5,8 @@ const router = express.Router();
 
 /* GET*/
 router.get("/", async (req, res) => {
-    const result = await getTasks();
+    
+   const result = await getData();
     console.log(result);
     res.json({
         message: "Tasks read",
@@ -16,7 +17,7 @@ router.get("/", async (req, res) => {
 /* POST*/
 router.post("/", async (req, res) => {
     try {
-        const result = await insertTask(req.body);
+        const result = await insertData(req.body);
         // console.log(result);
         result?._id
             ? res.json({
