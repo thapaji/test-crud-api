@@ -5,8 +5,8 @@ const router = express.Router();
 
 /* GET*/
 router.get("/", async (req, res) => {
-    
-   const result = await getData();
+
+    const result = await getData();
     console.log(result);
     res.json({
         message: "Tasks read",
@@ -34,8 +34,8 @@ router.post("/", async (req, res) => {
 
 /*update form*/
 router.patch("/", async (req, res) => {
-    const { id, type } = req.body;
-    const result = await updateTask(id, type);
+    // const updateObj = req.body;
+    const result = await updateData(req.body.id, req.body);
     result?.acknowledged
         ? res.json({
             message: "Your task has been updated",
